@@ -1,17 +1,16 @@
 package com.thoughtworks.ca.de.batch.ingest
 
+import java.time.Clock
+
 import org.apache.spark.sql.SparkSession
 import com.typesafe.config.ConfigFactory
-
-import com.thoughtworks.ca.de.common.utils.{
-  DateUtils,
-  DataframeUtils
-}
+import com.thoughtworks.ca.de.common.utils.{DataframeUtils, DateUtils}
 import org.apache.log4j.{Level, LogManager}
-
 import com.thoughtworks.ca.de.common.utils.{ConfigUtils, CredentialUtils}
 
 object DailyDriver {
+  implicit val clock: Clock = Clock.systemDefaultZone()
+
   def main(args: Array[String]) {
     val conf = ConfigFactory.load
     val log = LogManager.getRootLogger

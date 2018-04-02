@@ -1,10 +1,15 @@
 package com.thoughtworks.ca.de.batch.app
 
+import java.time.Clock
+
 import com.thoughtworks.ca.de.common.utils.DateUtils
 import org.apache.spark.sql.SparkSession
 import com.typesafe.config.ConfigFactory
 import org.apache.log4j.{Level, LogManager}
+
 object WordCount {
+  implicit val clock: Clock = Clock.systemDefaultZone()
+
   def main(args: Array[String]): Unit = {
     val conf = ConfigFactory.load
     val log = LogManager.getRootLogger
