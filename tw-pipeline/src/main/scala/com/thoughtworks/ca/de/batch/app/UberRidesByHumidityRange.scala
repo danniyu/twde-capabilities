@@ -6,13 +6,16 @@ Input data frames: uber rides & weather
 Dependency: Upstream ingest and tranform processes
  */
 
-import com.thoughtworks.ca.de.common.utils.{ConfigUtils, DateUtils}
+import java.time.Clock
+
+import com.thoughtworks.ca.de.common.utils.DateUtils
 import com.typesafe.config.ConfigFactory
 import org.apache.log4j.{Level, LogManager}
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.to_date
 
 object UberRidesByHumidityRange {
+  implicit val clock: Clock = Clock.systemDefaultZone()
+
   def main(args: Array[String]): Unit = {
     val conf = ConfigFactory.load
     val log = LogManager.getRootLogger

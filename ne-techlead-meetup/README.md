@@ -10,7 +10,7 @@
 * Install Scala: `brew install scala`
 * Install Apache Spark: `brew install apache-spark`
 * Install sbt: `brew install sbt@1`
-* Download config jar from maven: https://mvnrepository.com/artifact/com.typesafe/config/1.3.2 .
+* Download the configuration jar "config-1.3.2.jar" from maven: http://central.maven.org/maven2/com/typesafe/config/1.3.2/ .
   Save this jar in this root directory.
 * Install Python (need v3 or later): `brew install python`
 
