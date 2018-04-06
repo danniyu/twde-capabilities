@@ -1,0 +1,8 @@
+
+sbt package
+scp -o ProxyJump=ec2-user@bastion.training.twdps.io target/scala-2.11/tw-pipeline_2.11-0.1.0-SNAPSHOT.jar ec2-user@emr.training.twdps.io:/home/ec2-user/dyu/
+rm -rf /Users/Thoughtworks/workspace/DataEng/twde-capabilities/data/raw/uberdata/20180405
+spark-submit --jars config-1.3.2.jar --class com.thoughtworks.ca.de.batch.ingest.DailyDriver tw-pipeline_2.11-0.1.0-SNAPSHOT.jar
+spark-submit --jars config-1.3.2.jar --class com.thoughtworks.ca.de.batch.transform.DailyDriver tw-pipeline_2.11-0.1.0-SNAPSHOT.jar
+
+spark-submit --jars config-1.3.2.jar --class com.thoughtworks.ca.de.batch.ingest.IngestSource target/scala-2.11/tw-pipeline_2.11-0.1.0-SNAPSHOT.jar ../../Sample_Data/sample_citybikes.csv ../../twde-capabilities/data/raw

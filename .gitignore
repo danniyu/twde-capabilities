@@ -2,3 +2,5 @@ tw-pipeline/.idea
 tw-pipeline/target
 tw-pipeline/project
 .idea/
+*.iml
+tw-pipeline/src/test/scala/target/

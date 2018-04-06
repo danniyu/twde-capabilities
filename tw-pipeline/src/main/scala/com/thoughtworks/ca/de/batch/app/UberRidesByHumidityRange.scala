@@ -33,13 +33,13 @@ object UberRidesByHumidityRange {
     val uberData = spark.read.parquet(
       conf
         .getString("apps.uri")
-        .format(conf.getString("common.hdfs.lake2Path"),
+        .format(conf.getString("common.local.lake2Path"),
                 conf.getString("apps.UberRidesByHumidityRange.uberData"),
                 processingDate))
     val weatherData = spark.read.parquet(
       conf
         .getString("apps.uri")
-        .format(conf.getString("common.hdfs.lake2Path"),
+        .format(conf.getString("common.local.lake2Path"),
                 conf.getString("apps.UberRidesByHumidityRange.weatherData"),
                 processingDate))
 
@@ -56,7 +56,7 @@ object UberRidesByHumidityRange {
       .csv(
         conf
           .getString("apps.uri")
-          .format(conf.getString("common.hdfs.lake3Path"),
+          .format(conf.getString("common.local.lake3Path"),
                   conf.getString("apps.UberRidesByHumidityRange.output"),
                   processingDate))
 
